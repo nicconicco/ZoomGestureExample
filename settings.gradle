@@ -1,0 +1,2 @@
+rootProject.name='ZoomGestureExamples'
+include ':app'
