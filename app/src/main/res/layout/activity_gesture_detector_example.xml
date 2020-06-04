@@ -8,4 +8,14 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/outro"
+        android:text="Outro"
+        android:alpha="0"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
 </RelativeLayout>
