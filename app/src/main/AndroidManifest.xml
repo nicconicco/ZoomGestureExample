@@ -11,12 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="LockedOrientationActivity">
-<!--        <activity android:name=".textview_zoom.GestureDetectorExampleActivity"></activity>-->
+<!--        <activity android:name=".list_zoom.ListZoomItemActivity"></activity>-->
+        <!-- <activity android:name=".textview_zoom.GestureDetectorExampleActivity"></activity> -->
         <activity
             android:name=".list_textview.SecondActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".textview_zoom.GestureDetectorExampleActivity"
+            android:name=".list_zoom.ListZoomItemActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
