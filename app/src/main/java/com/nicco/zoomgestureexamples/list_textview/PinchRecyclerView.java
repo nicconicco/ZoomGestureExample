@@ -1,4 +1,4 @@
-package com.nicco.zoomgestureexamples;
+package com.nicco.zoomgestureexamples.list_textview;
 
 import android.content.Context;
 import android.graphics.Canvas;

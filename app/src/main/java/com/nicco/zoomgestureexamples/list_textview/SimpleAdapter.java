@@ -1,4 +1,4 @@
-package com.nicco.zoomgestureexamples;
+package com.nicco.zoomgestureexamples.list_textview;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +7,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.nicco.zoomgestureexamples.R;
 
 @SuppressWarnings("WeakerAccess")
 public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.ItemHolder> {
