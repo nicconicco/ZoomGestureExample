@@ -48,41 +48,48 @@ class ListZoomItemActivity : AppCompatActivity() {
         //initialize adapter
         mPhotosAdapter = PhotosAdapter(this, mPhotoUris)
 
-        mScaleGestureDetector = ScaleGestureDetector(this, object : SimpleOnScaleGestureListener() {
-            override fun onScale(detector: ScaleGestureDetector): Boolean {
-                if (detector.currentSpan > 200 && detector.timeDelta > 200) {
-                    if (detector.currentSpan - detector.previousSpan < -1) {
-                        if (mCurrentLayoutManager === mGridLayoutManager1) {
-                            mCurrentLayoutManager = mGridLayoutManager2
-                            rv_photos.layoutManager = mGridLayoutManager2
-                            return true
-                        } else if (mCurrentLayoutManager === mGridLayoutManager2) {
-                            mCurrentLayoutManager = mGridLayoutManager3
-                            rv_photos.layoutManager = mGridLayoutManager3
-                            return true
-                        }
-                    } else if (detector.currentSpan - detector.previousSpan > 1) {
-                        if (mCurrentLayoutManager === mGridLayoutManager3) {
-                            mCurrentLayoutManager = mGridLayoutManager2
-                            rv_photos.layoutManager = mGridLayoutManager2
-                            return true
-                        } else if (mCurrentLayoutManager === mGridLayoutManager2) {
-                            mCurrentLayoutManager = mGridLayoutManager1
-                            rv_photos.layoutManager = mGridLayoutManager1
-                            return true
-                        }
-                    }
-                }
-                return false
-            }
-        })
-
-        rv_photos.setOnTouchListener(View.OnTouchListener { v, event ->
-            mScaleGestureDetector!!.onTouchEvent(event)
-            false
-        })
+//        mScaleGestureDetector = ScaleGestureDetector(this, object : SimpleOnScaleGestureListener() {
+//            override fun onScale(detector: ScaleGestureDetector): Boolean {
+//                if (detector.currentSpan > 200 && detector.timeDelta > 200) {
+//                    if (detector.currentSpan - detector.previousSpan < -1) {
+//                        if (mCurrentLayoutManager === mGridLayoutManager1) {
+//                            mCurrentLayoutManager = mGridLayoutManager2
+//                            rv_photos.layoutManager = mGridLayoutManager2
+//                            return true
+//                        } else if (mCurrentLayoutManager === mGridLayoutManager2) {
+//                            mCurrentLayoutManager = mGridLayoutManager3
+//                            rv_photos.layoutManager = mGridLayoutManager3
+//                            return true
+//                        }
+//                    } else if (detector.currentSpan - detector.previousSpan > 1) {
+//                        if (mCurrentLayoutManager === mGridLayoutManager3) {
+//                            mCurrentLayoutManager = mGridLayoutManager2
+//                            rv_photos.layoutManager = mGridLayoutManager2
+//                            return true
+//                        } else if (mCurrentLayoutManager === mGridLayoutManager2) {
+//                            mCurrentLayoutManager = mGridLayoutManager1
+//                            rv_photos.layoutManager = mGridLayoutManager1
+//                            return true
+//                        }
+//                    }
+//                }
+//                return false
+//            }
+//        })
+//
+//        rv_photos.setOnTouchListener(View.OnTouchListener { v, event ->
+//            mScaleGestureDetector!!.onTouchEvent(event)
+//            false
+//        })
 
         rv_photos.layoutManager = LinearLayoutManager(this)
         rv_photos.adapter = mPhotosAdapter
+
+        rv_photos.addOnItemTouchListener(
+            PinchZoomItemTouchListener(this , object: PinchZoomItemTouchListener.PinchZoomListener {
+                override fun onPinchZoom(position: Int) {
+
+                }
+            }));
     }
 }
